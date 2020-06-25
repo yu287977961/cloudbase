@@ -1,0 +1,228 @@
+html{
+    height: 100%;
+    font-family: "Helvetica Neue","Hiragino Sans GB","Microsoft YaHei","\9ED1\4F53",Arial,sans-serif;
+    font-size: 14px;
+}
+body{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    background-color: #f6f8f9;
+    background-image: url("brushed-alum.png");
+    margin: 0;
+}
+.scroll{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+}
+.scroll::-webkit-scrollbar {
+    display:none;
+}
+.main{
+    width: 90%;
+    max-width: 1000px;
+    margin: 30px auto auto;
+    background-color: #fff;
+    border-radius: 3px;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    box-shadow: 0 1px 5px 0 rgba(0,0,0,0.05);
+}
+#list{
+    margin: 30px auto;
+}
+.main-title{
+    margin-bottom: 5px;
+    padding: 12px 0;
+    background-color: #42494b;
+    border-radius: 3px 3px 0 0;
+}
+.main-title h1{
+    text-align: center;
+    font-size: 22px;
+    color: #ffffff;
+    font-weight: 500;
+    margin: 0;
+    cursor: default;
+}
+.main-item{
+    width: 95%;
+    margin: 15px auto 5px auto;
+}
+.main-item-des{
+    color:#9a9a9a;
+    font-size: 14px;
+    cursor: default;
+}
+.main-item p{
+    font-size: 15px;
+    margin: 0 0 5px 0;
+    color: #5b5b5b;
+    font-weight: 900;
+    cursor: default;
+}
+.main-item textarea{
+    font-size:14px;
+    color:#565656;
+    padding: 5px 10px;
+    width: 100%;
+    height: 150px;
+    border: 1px solid #e7e7eb;
+    resize: none;
+    outline: none;
+}
+.main-item input{
+    font-size:14px;
+    color:#565656;
+    padding: 0 10px;
+    width: 100%;
+    height: 30px;
+    border: 1px solid #e7e7eb;
+    outline: none;
+}
+.upload-one{
+    width: 70px;
+    height: 70px;
+    background-image: url(icon/upload.png);
+    background-size: 100%;
+    border: 2px solid #e7e7eb;
+    cursor: pointer;
+    position: relative;
+    margin-right: 5px;
+    float: left;
+}
+.upload-one:active{
+    background-image: url('icon/upload-active.png');
+    border: 2px solid #42494b;
+}
+.upload-one input{
+    opacity: 0;
+    filter:alpha(opacity=0);
+    font-size: 100px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    cursor: pointer;
+}
+.main-item-submit{
+    border: none;
+    background-color: #42494b;
+    color: #ffffff;
+    font-size: 15px;
+    padding: 8px 16px;
+    width: 100%;
+    max-width: 370px;
+    outline: none;
+    float: left;
+    cursor: pointer;
+}
+.main-item-submit:active{
+    background-color: #666e70;
+}
+.mian-item-submitdes{
+    min-height: 36px;
+    line-height: 36px;
+    max-width: 360px;
+    float: left;
+    padding: 0 10px;
+    width: calc(100% - 20px);
+    margin-bottom: 20px;
+    color: #cacaca;
+    cursor: default;
+}
+.main-item-upload{
+    min-height: 74px;
+}
+.main-item-imgcontent{
+    width: 100%;
+}
+.main-item-imgcontent .imgcover{
+    width: 74px;
+    height: 74px;
+    margin-right: 5px;
+    float: left;
+    position: relative;
+}
+.main-item-imgcontent img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    cursor: pointer;
+}
+.main-item-imgcontent .delicon{
+    background-image: url(icon/delete.png);
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    background-size: 100%;
+    right: -5px;
+    top: -5px;
+    cursor: pointer;
+}
+.previewmodel{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+.previewmodel img{
+    margin: auto;
+    max-width: 100%;
+    max-height: 100%;
+}
+.list-item{
+    width: 95%;
+    margin: 0 auto 15px auto;
+    padding-top: 15px;
+    border-top: 1px solid #e7e7eb;
+}
+.list-item-advice {
+    color: #434343;
+    font-size: 14px;
+    margin-bottom: 10px;
+    cursor: default;
+}
+.list-item-images {
+    width: 100%;
+    min-height: 75px;
+    margin-bottom: 10px;
+}
+.list-item-images img{
+    width: 74px;
+    height: 74px;
+    margin-right: 5px;
+    float: left;
+    position: relative;
+    cursor: pointer;
+}
+.list-item-date{
+    font-size: 14px;
+    color: #9f9f9f;
+    width: 130px;
+    float: left;
+    cursor: default;
+}
+.list-item-del{
+    font-size: 14px;
+    margin: 10px 0;
+    color: #f73030;
+    width: 60px;
+    display: flex;
+    text-align: center;
+    cursor: pointer;
+}
+.list-item-retext{
+    color: #3a49ff;
+    font-size: 14px;
+    margin-bottom: 10px;
+    cursor: default;
+    font-weight: 900;
+    border-top: 1px dashed #acaacb;
+    padding-top: 10px;
+}

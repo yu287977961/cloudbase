@@ -1,0 +1,50 @@
+<html>
+    <head>
+        <title>云开发使用意见反馈平台</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+        <link rel="stylesheet" type="text/css" href="asset/index.css">
+        <script src="https://imgcache.qq.com/qcloud/tcbjs/1.7.0/tcb.js"></script>
+    </head>
+    <body onselectstart="return false">
+        <div class="scroll">
+            <div class="main">
+                <div class="main-title">
+                    <h1>云开发使用意见反馈平台</h1>
+                </div>
+                <div class="main-item">
+                    <div class="main-item-des">
+                        云开发（Tencent CloudBase，TCB）是云端一体化的后端云服务 ，采用 serverless 架构，免去了移动应用构建中繁琐的服务器搭建和运维。同时云开发提供的静态托管、命令行工具（CLI）、Flutter SDK 等能力极大的降低了应用开发的门槛。使用云开发可以快速构建完整的小程序/小游戏、H5、Web、移动 App 等应用。
+                        <br/>如果你在使用过程中有任何问题或者想提出意见和建议，欢迎在此提交，提交后你可以在稍后再来这里，我们在看到你的建议第一时间会回复。
+                    </div>
+                </div>
+                <div class="main-item">
+                    <p>内容描述</p>
+                    <textarea id="advicetext" placeholder="请在此写下你的意见和建议！最少20字"></textarea>
+                </div>
+                <div class="main-item">
+                    <p>联系方式</p>
+                    <input id="number" placeholder="便于我们联系您解决问题【选填】"></input>
+                </div>
+                <div class="main-item">
+                    <p>相关图片</p>
+                    <div class="main-item-upload">
+                        <div class="upload-one">
+                            <input type="file" id="uploader" onchange="chooseimage(this)" accept="image/*" multiple/>
+                        </div>
+                        <div class="main-item-imgcontent" id="imgcontent"></div>
+                    </div>
+                </div>
+                <div class="main-item">
+                    <button class="main-item-submit" id="submitbtn" onclick="submit()">提交反馈</button>
+                    <div class="mian-item-submitdes">提交反馈后，请耐心等待。有回复将在此页面下方展示</div>
+                </div>
+            </div>
+            <div id="list" class="main"></div>
+        </div>
+        <div class='previewmodel' onclick="hidepreview()" style="display: none;">
+            <img id="preview" src=""/>
+        </div>
+    </body>
+    <script src="asset/util.js"></script>
+    <script src="asset/index.js"></script>
+</html>
