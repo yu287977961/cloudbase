@@ -1,7 +1,7 @@
 # 第四章作业
 思路：把云函数调用修改成数据库实时监听，任务二把admin里面的100条数据读取和promiseall拉取过来
 
-java //let res = {};
+`let res = {};
   const auth = cloud.auth().getUserInfo();
   const uid = auth.customUserId;
   if(uid!=null){
@@ -33,4 +33,4 @@ java //let res = {};
   else{
     res.code = 404;
   }
-  return res;
+  return res;`
