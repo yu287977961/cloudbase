@@ -66,13 +66,20 @@ function initlist(){
  */
 function deladvice(id){
     if(confirm('是否要删除这个意见？')){
+        const tempimgs = advicelist[id].imgs;
         cloud.database().collection('advice').where({
             _id:id
         }).remove(
         function(err, res) {
-            let tempimgs = advicelist[id].imgs;
             if(tempimgs!=null && tempimgs.length!=0){
                 //删除图片
+                cloud.deleteFile({
+                    fileList: tempimgs
+                  })
+                  .then(res => {
+                      alert('删除成功！');
+                    //   initlist()
+                  });
             }
             else{
                 alert('删除成功！');
@@ -96,7 +103,7 @@ function cloudCheck(){
  * 重新渲染意见列表
  * @param Array list 意见列表
  */
-function refreshlist(list){
+async function refreshlist(list){
     let el = document.getElementById("list");
     el.innerHTML="";
     advicelist = {};
@@ -125,7 +132,8 @@ function refreshlist(list){
 
             for(let n in tempitem.imgs){
                 let img = document.createElement('img');
-                img.src = cloudtohttp(tempitem.imgs[n]);
+                img.src = await cloudtohttp(tempitem.imgs[n]);
+                console.log(img.src)
                 img.setAttribute('onclick','previewnetimg("'+img.src+'")');
                 itemimages.appendChild(img);
             }
@@ -284,13 +292,13 @@ function resetInput(){
  */
 function submittext(){
     let imgs=[];
-    // console.log(imagearray);
-    // for(let item in imagearray){
-    //     if(imagearray[item].upload!=true){
-    //         return;
-    //     }
-    //     imgs.push(imagearray[item].cloud);
-    // }
+    console.log(imagearray);
+    for(let item in imagearray){
+        if(imagearray[item].upload!=true){
+            return;
+        }
+        imgs.push(imagearray[item].cloud);
+    }
     let number = document.getElementById('number').value;
     let advicetext = document.getElementById('advicetext').value;
     console.log(advicetext,number);
@@ -314,5 +322,15 @@ function submittext(){
  * @param {*} check 
  */
 function cloudupload(file,check){
-    submittext();
+    cloud.uploadFile({
+        cloudPath: 'advice/'+uid+'/'+file.lastModified+'-'+file.name,
+        filePath: file
+    },
+    function(err, res){
+        if(res){
+            imagearray[file.lastModified].upload = true;
+            imagearray[file.lastModified].cloud = res.fileID;
+            submittext();
+        }
+    });
 }
