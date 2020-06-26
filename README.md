@@ -1,6 +1,7 @@
 # 第四章作业
 思路：把云函数调用修改成数据库实时监听，任务二把admin里面的100条数据读取和promiseall拉取过来
 
+```
 let res = {};
   const auth = cloud.auth().getUserInfo();
   const uid = auth.customUserId;
@@ -34,3 +35,9 @@ let res = {};
     res.code = 404;
   }
   return res;
+  ```
+
+
+  # 第五章作业
+
+思路：按照文档把util的cloudtohttp改成异步，并且将index当中的refresh改成异步即可
