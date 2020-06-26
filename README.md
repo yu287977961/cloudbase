@@ -41,3 +41,25 @@ let res = {};
   # 第五章作业
 
 思路：按照文档把util的cloudtohttp改成异步，并且将index当中的refresh改成异步即可
+
+```
+async function cloudtohttp(src) {
+    if(src==""){
+        return "";
+    }
+    let result = await cloud.getTempFileURL({
+        fileList: [src]
+    }).then(rs=>{
+        return rs
+    })
+    return result.fileList[0].tempFileURL;
+    
+}
+
+async function refreshlist(list){
+    //只有这一行有修改
+    img.src = await cloudtohttp(tempitem.imgs[n]);
+                
+    
+}
+  ```
